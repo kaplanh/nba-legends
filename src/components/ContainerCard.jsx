@@ -36,7 +36,7 @@ const ContainerCard = () => {
                         sm={2}
                         md={3}
                         lg={4}
-                        xl={6}
+                        // xl={6}
                         className="justify-content-center g-3"
                     >
                         {/* //!3 farkli sekilde props gönderimi ve alt comp karsilanmasi*/}
