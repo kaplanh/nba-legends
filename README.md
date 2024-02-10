@@ -11,7 +11,7 @@
 |useState() Hook| |[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
 |Conditional rendering| |[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
 |React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i react-bootstrap bootstrap | |      
-|Deploy with GitHub Pages | |   |
+|Deploy with [Vercel](https://vercel.com/dashboard) | |   |
   
   
 
@@ -87,37 +87,20 @@ Horoscope App(folder)
 │     └── index.html
 |----src (folder)
 |    |--- components (folder)
-|    |       |── header(folder)
-│    │       |     ├── Header.jsx
-│    │       |     ├── Header.scss
-│    │       |     ├── Header.css
-│    │       |
-|    |       |── main(folder)
-│    │       |     ├── Main.jsx
-│    │       |     ├── Main.scss
-│    │       |     ├── Main.css
-│    │       |     ├── Card.jsx
-│    │       |
-|    |       |── navbar(folder)
-│    │             ├── Navbar.jsx
-│    │             ├── Navbar.scss
-│    │             ├── Navbar.css
+│    │       ├── ContainerCard.jsx
+│    │       ├── Header.jsx
+│    │       ├── PlayerCard.jsx
 │    │
 |    |--- helper (folder)
 |    |       |── data.js
-│    │       |── logo.png
 │    │                      
-│    |--- scss (folder)
-|    |      ├── _reset.scss
-|    |      ├── _mixins.scss
-|    |      ├── _variables.scss
-|    |      
+│    |--- assets (folder)
+|    |      ├── nba-logo.png 
 |    |       
 │    ├--- App.js
-│    ├--- App.scss
-│    ├--- App.css
 │    │--- data.js
-│    └--- index.js
+│    |--- index.js
+│    ├--- index.css
 │
 │
 |--- .gitignore
@@ -130,226 +113,147 @@ Horoscope App(folder)
 ---
 ### At the end of the project, the following topics are to be covered;
 
-- sass with react
-  ```scss
-   // src/scss/_reset.scss
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-   // src/scss/_variables.scss
-       //? Colors
-     $backgroundColor:#ace0f9;
-     $cardNavBgColor: #171b20;
-  
-   // src/scss/_mixins.scss
-    @mixin media-xsm {
-    @media screen and (min-width: 0px) {
-      @content;
-    }
-  }
-  
-  
-  @mixin media-sm {
-    @media screen and (min-width: 576px) {
-      @content;
-    }
-  }
-
+- React-Bootstrap with react
+  ```jsx
+   // src/index.js
+  import "bootstrap/dist/css/bootstrap.min.css";
+   import "./index.css";
 
 
   
-   // src/scss/app.scss
-  
-  @import './scss/reset', './scss/variables';
+   // src/components/Header.jsx
 
-      @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
-      
-      @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
-      
-      body{
-          background-color: $backgroundColor;
-          font-family: 'Amatic SC', cursive;
-      }
-      
-      p{
-          font-family: 'Hubballi', cursive;
-      }
-
+       import Container from "react-bootstrap/Container";
+       import Image from "react-bootstrap/Image";
+       import logo from "../assets/nba-logo.png";
+       const Header = () => {
+           return (
+               <Container className="text-center mt-5">
+                   <Image src={logo} width="200px"></Image>
+                   <h1 className="my-2">NBA LEGENDS</h1>
+               </Container>
+           );
+       };
+       
+       export default Header;
+       
   ```
    
 
 
 
-- Parent Component icinde json datayi map() leme
+- Parent Component icinde json datayi filter() & map() leme
    ```jsx
-   // src/components/main/Main.jsx Parent component
+   // src/components/ContainerCard.jsx
    
-         import { data } from "../../helpers/data";
-        import "./Main.scss";
-        import Card from "./Card";
-        const Main = () => {
-            // console.log(data);
-            return (
-                <div className="card-container">
-                    {data.map((item, i) => (
-                        // !props
-                        // ?asagi data göndermenin 1.yolu
-                        // <Card item={item} />
-                        // böyle gönderirsek diger tarafta props.item.title seklinde yakalamaliyim
-                        // ?asagi data göndermenin 2.yolu
-                        <Card key={item.id} {...item} />
-                        
-                    ))}
-                </div>
-            );
-        };
-        export default Main;
-
-
-
-   // src/components/main/Card.jsx Child component
-   
-       const Card = (data) => {
-    // console.log("ne geliyo", data);
-    const { id, title, image, desc } = data;
-    return (
-        <div key={id} className="cards">
-            <div className="title">
-                <h1>{title}</h1>
-            </div>
-            <img src={image} alt="" />
-
-            <div className="card-over">
-                <p>{desc}</p>
-            </div>
-        </div>
+        const filteredData = data.filter((item) =>
+        item.name.toLowerCase().includes(search.trim().toLowerCase())
     );
-  };
-  
-  export default Card;
 
-  ```
-   ---
-- Deploy with GitHub Pages
-  
--    ### 💻 write in Terminal 👇
-
-```bash
-// src
- npm i gh-pages or yarn add gh-pages
-```
-
--    ### 💻  add this in scripts: "predeploy": "yarn run build",  "deploy": "gh-pages -d build" // if you use npm: "predeploy": "npm run build","deploy": "gh-pages -d build" 👇
-
-  ```sh
-// src/package.json
-
-  "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "predeploy": "yarn run build", 
-        "deploy": "gh-pages -d build"
-    },
-```
    
-   ### 💻  add github.io link as homepage:  "homepage": "https://kaplanh.github.io/horoscope_app", 👇
 
-```bash
-// src/package.json
-{
-    "homepage": "https://kaplanh.github.io/horoscope_app",
-    "name": "horoscope_app",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "gh-pages": "^6.1.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-scripts": "5.0.1",
-        "sass": "^1.70.0"
-    },
-```
+   filteredData.map((player, i) => (
+                                <PlayerCard key={i} {...player} />
+                            ))
 
 
+          // !filtreleme ve maplemeyi bu sekilde ardardada yapabiirdik
+                            // data
+                            //     .filter((item) =>
+                            //         item.name
+                            //             .toLowerCase()
+                            //             .includes(search.trim().toLowerCase())
+                            //     )
+                            //     .map((player, i) => (
+                            //         <PlayerCard key={i} {...player} />
+                            //     ))
 
--    ### 💻  write in Terminal 👇
-
-  ```sh
-    yarn run deploy  or npm run deploy
   ```
 
--    ### 💻  visit your page link 👇
+- props'u gönderme ve yakalamanin 3 yolu
+```jsx
+{filteredData.map((player, i) => (
+                            <PlayerCard
+                                key={i}
+                                player={player}
+                                //?{player} or const {name,img,statistics}=player
+                                or
+                                {...player}//!objenin icindeki tüm veriler lazimsa
+                                //?{name,img, statistics}
+                                or
+                                img={player.img}
+                                name={player.name}
+                                statistics={player.statistics}
+                                //?{name,img,statistics}
+                            />
+                        ))}
 
-  ```sh
-  https://kaplanh.github.io/horoscope_app
- ```
+```
+   ---
 
 
-- Image üzerine geldiginde alttan yukari dogru scrolsüz metin kaydirma
+
+- Conditional rendering
 
   ```jsx
-   const Card = ({ title, date, image, desc }) => {
-    // const { title, date, image, desc } = props;
-    // console.log("ne geliyor", props);
-    return (
-        <div className="cards">
-            <div className="title">
-                <h1>{title}</h1>
-            </div>
-            <div className="date">
-                <h2>{date}</h2>
-            </div>
-            <img src={image} alt="" />
-            <div className="card-over">
-                <p>{desc}</p>
-            </div>
-        </div>
-    );
-  };
+        import React, { useState } from "react";
+      import Col from "react-bootstrap/Col";
+      import Card from "react-bootstrap/Card";
+      const PlayCard = ({ name, img, statistics }) => {
+          const [showImage, setShowImage] = useState(true);
+          //! JSX icinde yani return icinde if-else kullanamiyoruz onun yerine && or || or ternary(?:) kullanabiliriz if-else i return üzerinde yazip icinde jsx yazabiliriz
+          return (
+              <Col>
+                  <Card
+                      onClick={() => setShowImage(!showImage)}
+                      className="player-card"
+                      role="button"
+                  >
+                      {showImage ? (
+                          <Card.Img variant="top" src={img} height="350px" />
+                      ) : (
+                          <ul className="m-auto">
+                              {statistics.map((item, i) => (
+                                  <li className="list-unstyled h5 text-start" key={i}>
+                                      🏀 {item}
+                                  </li>
+                              ))}
+                          </ul>
+                      )}
+      
+                      <Card.Footer>
+                          <Card.Title>{name}</Card.Title>
+                      </Card.Footer>
+                  </Card>
+              </Col>
+          );
+      };
+      
+      export default PlayCard;
+
 
 
   ```
+- nested css & filter
 
-  ~~~scss
+  ~~~css
 
 
   
-    .cards {
-            width: 500px;
-            height: 350px;
-            position: relative;
-            overflow: hidden;        
-            &:hover .card-over {
-                transform: translate(0%);
-            }
-            &:hover img {
-                opacity: 1;
-            }
-
-        .card-over {
-            width: 500px;        
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-size: 1.5rem;
-            z-index: 3;
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.7s;
-            max-height: 75%;
-            overflow: auto;
-            // ?scrollbari kaybetmek icin
-            &::-webkit-scrollbar{
-                display: none;
-                             }  
-               }
-      }
+   .player-card {
+    height: 400px;
+    & img {
+        filter: blur(3px);
+        transition: transform 0.3s;
+    }
+    &:hover {
+        box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.5);
+        & img {
+            transform: scale(0.9);
+            filter: none;
+        }
+    }
+}
   ~~~
 
   
@@ -368,54 +272,7 @@ Thank you for visiting my project. I hope you have a wonderful experience explor
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 
 
