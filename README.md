@@ -1,6 +1,6 @@
 # NBA Legends
 
-[:point_right: Click here to see on browser]()
+[:point_right: Click here to see on browser](https://nba-legends-v1.vercel.app/)
 
 ![tour places]()
 
@@ -253,29 +253,13 @@ Horoscope App(folder)
             filter: none;
         }
     }
-}
+    }
   ~~~
 
   
   
 ---
  
-
-## Feedback and Collaboration
-I value your feedback and suggestions. If you have any comments, questions, or ideas for improvement regarding this project or any of my other projects, please don't hesitate to reach out.
-I'm always open to collaboration and welcome the opportunity to work on exciting projects together.
-Thank you for visiting my project. I hope you have a wonderful experience exploring it, and I look forward to connecting with you soon!
-
-
-
-<p align="center"> ⌛<strong> Happy Coding </strong> ✍ </p>
-
-
-
----
-
-
-
 
 
 # React Bootstrap
@@ -578,3 +562,12 @@ const PlayerCard = ({ name, img, statistics }) => {
 
 export default PlayerCard;
 ```
+---
+## Feedback and Collaboration
+I value your feedback and suggestions. If you have any comments, questions, or ideas for improvement regarding this project or any of my other projects, please don't hesitate to reach out.
+I'm always open to collaboration and welcome the opportunity to work on exciting projects together.
+Thank you for visiting my project. I hope you have a wonderful experience exploring it, and I look forward to connecting with you soon!
+
+
+
+<p align="center"> ⌛<strong> Happy Coding </strong> ✍ </p>
