@@ -10,7 +10,7 @@
 |----------|--|------------|
 |useState() Hook| |[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
 |Conditional rendering| |[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
-|React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i react-bootstrap bootstrap or yarn add react-bootstrap bootstrap | |      
+|React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i / yarn add react-bootstrap bootstrap  | |      
 |Deploy with [Vercel](https://vercel.com/dashboard) | |   |
   
   
