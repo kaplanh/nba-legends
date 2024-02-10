@@ -2,11 +2,9 @@
 
 [:point_right: Click here to see on browser](https://nba-legends-v1.vercel.app/)
 
-<<<<<<< HEAD
-![NBA Legends](./src/assets/nba.gif)
-=======
-[NBA Legends]("")
->>>>>>> e3fe64841ef8891e0f84fece97e494277fc1ba8c
+<!-- ![NBA Legends](./src/assets/nba.gif) -->
+
+![NBA Legends](./src/assets/nba_legends.gif)
 
 ---
 
