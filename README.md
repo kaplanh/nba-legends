@@ -2,7 +2,7 @@
 
 [:point_right: Click here to see on browser](https://nba-legends-v1.vercel.app/)
 
-<!-- ![NBA Legends](./src/assets/nba.gif) -->
+
 
 ![NBA Legends](./src/assets/nba_legends.gif)
 
@@ -83,7 +83,7 @@ OR
 ## Project Skeleton
 
 ```
-Horoscope App(folder)
+nba legends(folder)
 |
 |----public (folder)
 │     └── index.html
