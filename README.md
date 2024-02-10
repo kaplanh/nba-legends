@@ -2,7 +2,7 @@
 
 [:point_right: Click here to see on browser](https://nba-legends-v1.vercel.app/)
 
-![tour places]()
+[NBA Legends]("")
 
 ---
  
