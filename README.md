@@ -103,7 +103,7 @@ Horoscope App(folder)
 │    ├--- index.css
 │
 │
-|--- .gitignore
+|-- .gitignore
 |── package-lock.json
 ├── package.json
 |── README.md
