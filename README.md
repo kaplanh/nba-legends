@@ -1,8 +1,8 @@
 # NBA Legends
 
-[:point_right: Click here to see on browser](https://kaplanh.github.io/Tour-Places/)
+[:point_right: Click here to see on browser]()
 
-![tour places](https://github.com/kaplanh/Tour-Places/assets/101884444/b0871b9c-3f5e-4146-85f1-27794dffc3e2)
+![tour places]()
 
 ---
  
@@ -10,7 +10,7 @@
 |----------|--|------------|
 |useState() Hook| |[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
 |Conditional rendering| |[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
-|React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i react-bootstrap bootstrap | |      
+|React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i react-bootstrap bootstrap or yarn add react-bootstrap bootstrap | |      
 |Deploy with [Vercel](https://vercel.com/dashboard) | |   |
   
   
