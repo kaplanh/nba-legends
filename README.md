@@ -10,9 +10,9 @@
 |----------|--|------------|
 |useState() Hook| |[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
 |Conditional rendering| |[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
-|React-Bootstrap]("https://react-bootstrap.netlify.app/") |npm i react-bootstrap bootstarap | |      
+|React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i react-bootstrap bootstrap | |      
 |Deploy with GitHub Pages | |   |
-  [^1]: + App.js de bu sekilde import edilmeli import './App.scss';
+  
   
 
 ---
