@@ -2,18 +2,16 @@
 
 [:point_right: Click here to see on browser](https://nba-legends-v1.vercel.app/)
 
-![tour places]()
+![NBA Legends](./src/assets/nba.gif)
 
 ---
- 
-**What's used in this app ?** |**How use third party libraries**|  **Author** |
-|----------|--|------------|
-|useState() Hook| |[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
-|Conditional rendering| |[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
-|[React-Bootstrap](https://react-bootstrap.netlify.app/) |npm i / yarn add react-bootstrap bootstrap  | |      
-|Deploy with [Vercel](https://vercel.com/dashboard) | |   |
-  
-  
+
+| **What's used in this app ?**                           | **How use third party libraries**          | **Author**                                                                       |
+| ------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------- |
+| useState() Hook                                         |                                            | [Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/) |
+| Conditional rendering                                   |                                            | [Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)                    |
+| [React-Bootstrap](https://react-bootstrap.netlify.app/) | npm i / yarn add react-bootstrap bootstrap |                                                                                  |
+| Deploy with [Vercel](https://vercel.com/dashboard)      |                                            |                                                                                  |
 
 ---
 
@@ -26,6 +24,7 @@
 ```bash
 yarn create react-app .  or npx create-react-app .
 ```
+
 ### 💻 Install Sass 👇
 
 ```bash
@@ -48,37 +47,38 @@ yarn add sass  or npm i sass
 ```bash
 yarn start or npm start
 ```
+
 OR
-- <strong>Clone the Repo</strong>
 
-  ```sh
-  git clone
-  ```
-  
+-   <strong>Clone the Repo</strong>
 
-- <strong>Install NPM packages</strong>
+    ```sh
+    git clone
+    ```
 
-  ```sh
-  npm install or yarn 
-  ```
+-   <strong>Install NPM packages</strong>
 
-- <strong>Run the project</strong>
+    ```sh
+    npm install or yarn
+    ```
 
-  ```sh
-  npm start or yarn start
-  ```
+-   <strong>Run the project</strong>
 
-- <strong>Open the project on your browser</strong>
+    ```sh
+    npm start or yarn start
+    ```
 
-  ```sh
-  http://localhost:3000/
-  ```
+-   <strong>Open the project on your browser</strong>
 
-- ### <strong>Enjoy! 🎉</strong>
+    ```sh
+    http://localhost:3000/
+    ```
+
+-   ### <strong>Enjoy! 🎉</strong>
 
 ---
 
-## Project Skeleton 
+## Project Skeleton
 
 ```
 Horoscope App(folder)
@@ -93,10 +93,10 @@ Horoscope App(folder)
 │    │
 |    |--- helper (folder)
 |    |       |── data.js
-│    │                      
+│    │
 │    |--- assets (folder)
-|    |      ├── nba-logo.png 
-|    |       
+|    |      ├── nba-logo.png
+|    |
 │    ├--- App.js
 │    │--- data.js
 │    |--- index.js
@@ -110,157 +110,144 @@ Horoscope App(folder)
 |── yarn.lock
 
 ```
+
 ---
+
 ### At the end of the project, the following topics are to be covered;
 
-- React-Bootstrap with react
-  ```jsx
-   // src/index.js
-  import "bootstrap/dist/css/bootstrap.min.css";
-   import "./index.css";
+-   React-Bootstrap with react
 
+    ```jsx
+    // src/index.js
+    import "bootstrap/dist/css/bootstrap.min.css";
+    import "./index.css";
 
-  
-   // src/components/Header.jsx
+    // src/components/Header.jsx
 
-       import Container from "react-bootstrap/Container";
-       import Image from "react-bootstrap/Image";
-       import logo from "../assets/nba-logo.png";
-       const Header = () => {
-           return (
-               <Container className="text-center mt-5">
-                   <Image src={logo} width="200px"></Image>
-                   <h1 className="my-2">NBA LEGENDS</h1>
-               </Container>
-           );
-       };
-       
-       export default Header;
-       
-  ```
-   
+    import Container from "react-bootstrap/Container";
+    import Image from "react-bootstrap/Image";
+    import logo from "../assets/nba-logo.png";
+    const Header = () => {
+        return (
+            <Container className="text-center mt-5">
+                <Image src={logo} width="200px"></Image>
+                <h1 className="my-2">NBA LEGENDS</h1>
+            </Container>
+        );
+    };
 
+    export default Header;
+    ```
 
+-   Parent Component icinde json datayi filter() & map() leme
 
-- Parent Component icinde json datayi filter() & map() leme
-   ```jsx
-   // src/components/ContainerCard.jsx
-   
-        const filteredData = data.filter((item) =>
+    ```jsx
+    // src/components/ContainerCard.jsx
+
+    const filteredData = data.filter((item) =>
         item.name.toLowerCase().includes(search.trim().toLowerCase())
     );
 
-   
+    filteredData.map((player, i) => <PlayerCard key={i} {...player} />);
 
-   filteredData.map((player, i) => (
-                                <PlayerCard key={i} {...player} />
-                            ))
+    // !filtreleme ve maplemeyi bu sekilde ardardada yapabiirdik
+    // data
+    //     .filter((item) =>
+    //         item.name
+    //             .toLowerCase()
+    //             .includes(search.trim().toLowerCase())
+    //     )
+    //     .map((player, i) => (
+    //         <PlayerCard key={i} {...player} />
+    //     ))
+    ```
 
+-   props'u gönderme ve yakalamanin 3 yolu
 
-          // !filtreleme ve maplemeyi bu sekilde ardardada yapabiirdik
-                            // data
-                            //     .filter((item) =>
-                            //         item.name
-                            //             .toLowerCase()
-                            //             .includes(search.trim().toLowerCase())
-                            //     )
-                            //     .map((player, i) => (
-                            //         <PlayerCard key={i} {...player} />
-                            //     ))
-
-  ```
-
-- props'u gönderme ve yakalamanin 3 yolu
 ```jsx
-{filteredData.map((player, i) => (
-                            <PlayerCard
-                                key={i}
-                                player={player}
-                                //?{player} or const {name,img,statistics}=player
-                                or
-                                {...player}//!objenin icindeki tüm veriler lazimsa
-                                //?{name,img, statistics}
-                                or
-                                img={player.img}
-                                name={player.name}
-                                statistics={player.statistics}
-                                //?{name,img,statistics}
-                            />
-                        ))}
-
+{
+    filteredData.map((player, i) => (
+        <PlayerCard
+            key={i}
+            player={player}
+            //?{player} or const {name,img,statistics}=player
+            or
+            {...player} //!objenin icindeki tüm veriler lazimsa
+            //?{name,img, statistics}
+            or
+            img={player.img}
+            name={player.name}
+            statistics={player.statistics}
+            //?{name,img,statistics}
+        />
+    ));
+}
 ```
-   ---
 
+---
 
+-   Conditional rendering
 
-- Conditional rendering
+    ```jsx
+    import React, { useState } from "react";
+    import Col from "react-bootstrap/Col";
+    import Card from "react-bootstrap/Card";
+    const PlayCard = ({ name, img, statistics }) => {
+        const [showImage, setShowImage] = useState(true);
+        //! JSX icinde yani return icinde if-else kullanamiyoruz onun yerine && or || or ternary(?:) kullanabiliriz if-else i return üzerinde yazip icinde jsx yazabiliriz
+        return (
+            <Col>
+                <Card
+                    onClick={() => setShowImage(!showImage)}
+                    className="player-card"
+                    role="button"
+                >
+                    {showImage ? (
+                        <Card.Img variant="top" src={img} height="350px" />
+                    ) : (
+                        <ul className="m-auto">
+                            {statistics.map((item, i) => (
+                                <li
+                                    className="list-unstyled h5 text-start"
+                                    key={i}
+                                >
+                                    🏀 {item}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
 
-  ```jsx
-        import React, { useState } from "react";
-      import Col from "react-bootstrap/Col";
-      import Card from "react-bootstrap/Card";
-      const PlayCard = ({ name, img, statistics }) => {
-          const [showImage, setShowImage] = useState(true);
-          //! JSX icinde yani return icinde if-else kullanamiyoruz onun yerine && or || or ternary(?:) kullanabiliriz if-else i return üzerinde yazip icinde jsx yazabiliriz
-          return (
-              <Col>
-                  <Card
-                      onClick={() => setShowImage(!showImage)}
-                      className="player-card"
-                      role="button"
-                  >
-                      {showImage ? (
-                          <Card.Img variant="top" src={img} height="350px" />
-                      ) : (
-                          <ul className="m-auto">
-                              {statistics.map((item, i) => (
-                                  <li className="list-unstyled h5 text-start" key={i}>
-                                      🏀 {item}
-                                  </li>
-                              ))}
-                          </ul>
-                      )}
-      
-                      <Card.Footer>
-                          <Card.Title>{name}</Card.Title>
-                      </Card.Footer>
-                  </Card>
-              </Col>
-          );
-      };
-      
-      export default PlayCard;
+                    <Card.Footer>
+                        <Card.Title>{name}</Card.Title>
+                    </Card.Footer>
+                </Card>
+            </Col>
+        );
+    };
 
+    export default PlayCard;
+    ```
 
+-   nested css & filter
 
-  ```
-- nested css & filter
-
-  ~~~css
-
-
-  
-   .player-card {
-    height: 400px;
-    & img {
-        filter: blur(3px);
-        transition: transform 0.3s;
-    }
-    &:hover {
-        box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.5);
+    ```css
+    .player-card {
+        height: 400px;
         & img {
-            transform: scale(0.9);
-            filter: none;
+            filter: blur(3px);
+            transition: transform 0.3s;
+        }
+        &:hover {
+            box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.5);
+            & img {
+                transform: scale(0.9);
+                filter: none;
+            }
         }
     }
-    }
-  ~~~
+    ```
 
-  
-  
 ---
- 
-
 
 # React Bootstrap
 
@@ -562,12 +549,13 @@ const PlayerCard = ({ name, img, statistics }) => {
 
 export default PlayerCard;
 ```
+
 ---
+
 ## Feedback and Collaboration
+
 I value your feedback and suggestions. If you have any comments, questions, or ideas for improvement regarding this project or any of my other projects, please don't hesitate to reach out.
 I'm always open to collaboration and welcome the opportunity to work on exciting projects together.
 Thank you for visiting my project. I hope you have a wonderful experience exploring it, and I look forward to connecting with you soon!
-
-
 
 <p align="center"> ⌛<strong> Happy Coding </strong> ✍ </p>
